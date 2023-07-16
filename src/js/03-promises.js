@@ -30,10 +30,11 @@ function onPromiseSubmit(e) {
   let valueDelay = Number(refs.delay.value);
   let step = Number(refs.step.value);
   let amount = Number(refs.amount.value);
+  
 
+  
   for (let i = 1; i <= amount; i += 1) {
-      let promiseDelay = valueDelay + step * (i-1);
-    
+      let promiseDelay = valueDelay + step * amount;
     
     createPromise(i, promiseDelay)
       .then(({ position, delay }) => {
@@ -43,9 +44,6 @@ function onPromiseSubmit(e) {
         Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`);
       });
     
-    
   }
 }
 
-
-// ------
