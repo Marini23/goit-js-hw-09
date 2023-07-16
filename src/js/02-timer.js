@@ -14,6 +14,7 @@ let intervalId = null;
 let remainingTime = 0;
 btnStart.disabled = true;
 
+
 btnStart.addEventListener(`click`, timerStart);
 
 function timerStart() {
