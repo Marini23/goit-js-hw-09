@@ -34,16 +34,22 @@ function onPromiseSubmit(e) {
 
   
   for (let i = 1; i <= amount; i += 1) {
-      let promiseDelay = valueDelay + step * amount;
     
-    createPromise(i, promiseDelay)
+    if (i !== 1) {
+    valueDelay = step * i - step;
+    }
+
+    createPromise(i, valueDelay)
       .then(({ position, delay }) => {
         Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`);
       })
       .catch(({ position, delay }) => {
         Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`);
       });
+    console.log(valueDelay);
     
   }
 }
 
+
+// ------
